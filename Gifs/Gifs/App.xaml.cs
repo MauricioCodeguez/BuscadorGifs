@@ -23,6 +23,16 @@ namespace Gifs
         {
             InitializeComponent();
 
+#if DEBUG
+            if (!HotReloader.Current.IsRunning)
+            {
+                HotReloader.Current.Run(this, new HotReloader.Configuration
+                {
+                    ExtensionAutoDiscoveryPort = 15000
+                });
+            }
+#endif
+
             await NavigationService.NavigateAsync("NavigationPage/MainPage");
         }
 
