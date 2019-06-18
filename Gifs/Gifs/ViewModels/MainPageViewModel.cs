@@ -13,7 +13,7 @@ namespace Gifs.ViewModels
         public MainPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
-            Title = "Main";
+            Title = "Main Page";
         }
     }
 }
