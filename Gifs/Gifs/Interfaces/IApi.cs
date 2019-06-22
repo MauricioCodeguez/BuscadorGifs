@@ -6,7 +6,10 @@ namespace Gifs.Interfaces
 {
     public interface IApi
     {
-        [Get("/trending?api_key={apiKey}&limit={limit}&rating=G")]
+        [Get("/gifs/trending?api_key={apiKey}&limit={limit}&rating=G")]
         Task<Gif> GetTrendingAsync(string apiKey, int limit);
+
+        [Get("/stickers/trending?api_key={apiKey}&limit={limit}&rating=G")]
+        Task<Gif> GetTrendingStickerAsync(string apiKey, int limit);
     }
 }

@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="Gifs.Views.MainPage"
+    x:Class="Gifs.Views.Top10GifPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
-    Title="{Binding Title}"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    prism:ViewModelLocator.AutowireViewModel="True"
     BackgroundColor="White">
-
     <StackLayout>
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
         <flv:FlowListView
             FlowColumnCount="2"
             FlowColumnExpand="First"
@@ -27,7 +28,7 @@
                             CornerRadius="10">
                             <Image
                                 Aspect="Fill"
-                                HeightRequest="230"
+                                HeightRequest="150"
                                 Source="{Binding Images.FixedHeight.Url}" />
                         </Frame>
                         <Label
@@ -42,5 +43,4 @@
             </flv:FlowListView.FlowColumnTemplate>
         </flv:FlowListView>
     </StackLayout>
-
 </ContentPage>

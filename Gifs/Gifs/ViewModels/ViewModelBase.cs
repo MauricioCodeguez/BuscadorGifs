@@ -18,6 +18,15 @@ namespace Gifs.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
+        private bool _isBusy;
+        public bool IsBusy
+        {
+            get { return _isBusy; }
+            set { SetProperty(ref _isBusy, value); }
+        }
+
+        public bool IsNotBusy { get => !IsBusy; }
+
         public ViewModelBase(INavigationService navigationService)
         {
             NavigationService = navigationService;

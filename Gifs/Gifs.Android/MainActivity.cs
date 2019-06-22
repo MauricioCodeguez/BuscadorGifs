@@ -20,7 +20,9 @@ namespace Gifs.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
-            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);
+            Android.Glide.Forms.Init();
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
+            FFImageLoading.Forms.Platform.CachedImageRenderer.InitImageViewHandler();
 
             LoadApplication(new App(new AndroidInitializer()));
         }

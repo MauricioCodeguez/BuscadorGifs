@@ -24,7 +24,7 @@ namespace Gifs.iOS
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App(new iOSInitializer()));
 
-            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+            FFImageLoading.Forms.Platform.CachedImageRenderer.InitImageSourceHandler();
 
             return base.FinishedLaunching(app, options);
         }

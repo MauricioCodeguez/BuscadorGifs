@@ -21,7 +21,7 @@ namespace Gifs.ViewModels
             IApi api)
             : base(navigationService)
         {
-            Title = "Trending";
+            Title = "Top 10 Trending";
 
             _api = api;
         }
@@ -36,7 +36,7 @@ namespace Gifs.ViewModels
         {
             try
             {
-                var retorno = await _api.GetTrendingAsync("CYRh1lH68p3cMsrXqd6TYYU1YufBEwh3", 20);
+                var retorno = await _api.GetTrendingAsync("CYRh1lH68p3cMsrXqd6TYYU1YufBEwh3", 10);
 
                 if (retorno != null)
                     Gif = retorno;

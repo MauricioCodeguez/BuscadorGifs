@@ -20,17 +20,19 @@ namespace Gifs
         {
             InitializeComponent();
 
+            DLToolkit.Forms.Controls.FlowListView.Init();
+
 #if DEBUG
             if (!HotReloader.Current.IsRunning)
             {
-                HotReloader.Current.Run(this, new HotReloader.Configuration
-                {
-                    ExtensionAutoDiscoveryPort = 15000
-                });
+                var info = HotReloader.Current.Run(this);
+                var port = info.SelectedDevicePort;
+                var addresses = info.IPAddresses;
             }
 #endif
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("NavigationPage/Top10TabbedPage?selectedTab=Top10GifPage");
+            //await NavigationService.NavigateAsync("NavigationPage/MainPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -39,6 +41,9 @@ namespace Gifs
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<Top10TabbedPage, Top10TabbedPageViewModel>();
+            containerRegistry.RegisterForNavigation<Top10GifPage, Top10GifPageViewModel>();
+            containerRegistry.RegisterForNavigation<Top10StickerPage, Top10StickerPageViewModel>();
         }
     }
 }

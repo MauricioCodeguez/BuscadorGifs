@@ -8,8 +8,8 @@ namespace Gifs.Models
     {
         [JsonProperty("data")]
         public ObservableCollection<GifInfo> Data { get; set; }
-        //[JsonProperty("pagination")]
-        //public Pagination Pagination { get; set; }
+        [JsonProperty("meta")]
+        public Meta Meta { get; set; }
     }
 
     public class GifInfo
@@ -92,13 +92,11 @@ namespace Gifs.Models
         public string size { get; set; }
     }
 
-    public class Pagination
+    public class Meta
     {
-        [JsonProperty("total_count")]
-        public int TotalCount { get; set; }
-        [JsonProperty("count")]
-        public int Count { get; set; }
-        [JsonProperty("offset")]
-        public int Offset { get; set; }
+        [JsonProperty("status")]
+        public int Status { get; set; }
+        [JsonProperty("msg")]
+        public string Msg { get; set; }
     }
 }
