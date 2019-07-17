@@ -25,7 +25,7 @@
                         <Image
                             Grid.Row="0"
                             Aspect="Fill"
-                            HeightRequest="150"
+                            HeightRequest="200"
                             Source="{Binding Images.FixedHeight.Url}" />
                         <Label
                             Grid.Row="1"
